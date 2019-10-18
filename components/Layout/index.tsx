@@ -1,14 +1,16 @@
-import * as React from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
+import * as React from "react";
+import Link from "next/link";
+import Head from "next/head";
+import PropTypes from "prop-types";
 
 type Props = {
-  title?: string
-}
+  title?: string;
+  children?: {};
+};
 
-const Layout: React.FunctionComponent<Props> = ({
+const Layout: React.FC<Props> = ({
   children,
-  title = 'This is the default title',
+  title = "Quick Car & Two Wheeler Insurance Policy Online - ACKO General Insurance Company"
 }) => (
   <div>
     <Head>
@@ -19,24 +21,36 @@ const Layout: React.FunctionComponent<Props> = ({
     <header>
       <nav>
         <Link href="/">
-          <a>Home</a>
-        </Link>{' '}
-        |{' '}
+          <a href="/">Home</a>
+        </Link>{" "}
+        |{" "}
         <Link href="/about">
-          <a>About</a>
-        </Link>{' '}
-        |{' '}
+          <a href="/about">About</a>
+        </Link>{" "}
+        |{" "}
         <Link href="/users">
-          <a>Users List</a>
+          <a href="/users">Users List</a>
         </Link>
       </nav>
     </header>
     {children}
     <footer>
       <hr />
-      <span>I'm here to stay (Footer)</span>
+      <span>I &apos; m here to stay (Footer)</span>
     </footer>
   </div>
-)
+);
 
-export default Layout
+Layout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.instanceOf(React.Component),
+    PropTypes.node
+  ]).isRequired,
+  title: PropTypes.string
+};
+
+Layout.defaultProps = {
+  title: ""
+};
+
+export default Layout;
