@@ -12,7 +12,7 @@ const Title = styled.h1`
 
 const IndexPage: NextPage = () => {
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <Layout>
       <Title>Hello Next.js</Title>
       <p>
         <Link href="/about">

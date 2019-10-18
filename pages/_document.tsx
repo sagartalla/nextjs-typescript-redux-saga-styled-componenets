@@ -8,6 +8,7 @@ export default class MyDocument extends Document {
     const originalRenderPage = ctx.renderPage;
 
     try {
+      /* Critical Path Generator */
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App: ComponentType) => (props: any) =>
