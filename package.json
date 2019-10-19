@@ -8,8 +8,9 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "cacheable-response": "^1.7.4",
+    "@types/lru-cache": "^5.1.0",
     "express": "^4.17.1",
+    "lru-cache": "^5.1.1",
     "next": "latest",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",

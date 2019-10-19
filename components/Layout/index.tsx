@@ -27,10 +27,6 @@ const Layout: React.FC<Props> = ({
         <Link href="/about">
           <a href="/about">About</a>
         </Link>{" "}
-        |{" "}
-        <Link href="/users">
-          <a href="/users">Users List</a>
-        </Link>
       </nav>
     </header>
     {children}

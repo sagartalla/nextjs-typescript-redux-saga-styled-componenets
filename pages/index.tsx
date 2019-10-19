@@ -13,7 +13,7 @@ const Title = styled.h1`
 const IndexPage: NextPage = () => {
   return (
     <Layout>
-      <Title>Hello Next.js</Title>
+      <Title>Hello </Title>
       <p>
         <Link href="/about">
           <a href="/about">About</a>
