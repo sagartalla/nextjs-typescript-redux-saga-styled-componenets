@@ -4,7 +4,19 @@
 //
 // import User from 'path/to/interfaces';
 
+import { Store } from "redux";
+import { NextPage, NextPageContext } from "next";
+
 export type User = {
   id: number
   name: string
 }
+
+export interface NextPageContextExtended extends NextPageContext {
+  store: Store;
+  isServer: boolean;
+};
+
+export interface NextPageExtended<P, IP = P> extends NextPage<P,IP> {
+  propTypes: object
+};

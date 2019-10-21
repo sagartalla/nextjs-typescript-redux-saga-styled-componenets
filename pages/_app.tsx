@@ -1,6 +1,13 @@
-import App from "next/app";
+import App, { AppProps } from "next/app";
 import React from "react";
 import { ThemeProvider } from "styled-components";
+
+import { Store } from "redux";
+import { Provider } from "react-redux";
+import withRedux from "next-redux-wrapper";
+import withReduxSaga from "next-redux-saga";
+
+import createStore from "../store/store";
 
 const theme = {
   colors: {
@@ -8,15 +15,21 @@ const theme = {
   }
 };
 
-class StoreApp extends App {
+interface Props {
+  store: Store;
+}
+
+class StoreApp extends App<Props & AppProps> {
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, store } = this.props;
     return (
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Provider>
     );
   }
 }
 
-export default StoreApp;
+export default withRedux(createStore)(withReduxSaga(StoreApp));
