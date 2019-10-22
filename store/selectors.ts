@@ -9,4 +9,10 @@ export const getPaceHolderData = () =>
     globalState => globalState.placeholderData
   );
 
+export const getCount = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.count
+  );
+
 export default {};

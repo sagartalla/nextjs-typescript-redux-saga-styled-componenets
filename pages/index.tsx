@@ -6,11 +6,12 @@ import Link from "next/link";
 
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { bindActionCreators, Dispatch } from "redux";
 
 import Layout from "../components/Layout";
 
-import { loadData } from "../store/actions";
-import { getPaceHolderData } from "../store/selectors";
+import { loadData, incrementCount } from "../store/actions";
+import { getPaceHolderData, getCount } from "../store/selectors";
 import { InitialStateType } from "../store/types.d";
 import { NextPageContextExtended, NextPageExtended } from "../interfaces";
 
@@ -21,17 +22,28 @@ const Title = styled.h1`
 
 interface Props {
   placeholderData?: object | null;
+  isServer: boolean;
+  incrementCount?(): void;
+  count?: number;
 }
 
-const IndexPage: NextPageExtended<Props> = ({ placeholderData }) => {
+const IndexPage: NextPageExtended<Props> = ({
+  placeholderData,
+  count,
+  incrementCount
+}) => {
   return (
     <Layout>
-      <Title>Hello </Title>
+      <Title>Hello</Title>
       <p>
         <Link href="/about">
           <a href="/about">About</a>
         </Link>
       </p>
+      <button type="button" onClick={incrementCount}>
+        Click Me
+      </button>
+      <p>You clicked {count} times</p>
       <p>{JSON.stringify(placeholderData)}</p>
     </Layout>
   );
@@ -39,14 +51,16 @@ const IndexPage: NextPageExtended<Props> = ({ placeholderData }) => {
 
 IndexPage.getInitialProps = async (
   ctx: NextPageContextExtended
-): Promise<object> => {
+): Promise<Props> => {
   const { isServer } = ctx;
   await ctx.store.dispatch(loadData());
   return { isServer };
 };
 
 IndexPage.propTypes = {
-  placeholderData: PropTypes.objectOf(PropTypes.shape({}))
+  placeholderData: PropTypes.objectOf(PropTypes.shape({})),
+  incrementCount: PropTypes.func.isRequired,
+  count: PropTypes.number.isRequired
 };
 
 IndexPage.defaultProps = {
@@ -55,16 +69,26 @@ IndexPage.defaultProps = {
 
 interface ConnectedProps {
   placeholderData: object | null;
+  count: number;
 }
 
 const mapStateToProps = createStructuredSelector<
   InitialStateType,
   ConnectedProps
 >({
-  placeholderData: getPaceHolderData()
+  placeholderData: getPaceHolderData(),
+  count: getCount()
 });
+
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators(
+    {
+      incrementCount
+    },
+    dispatch
+  );
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(IndexPage);

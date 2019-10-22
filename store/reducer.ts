@@ -2,7 +2,8 @@ import ActionTypes from "./constants";
 import { AppActions, InitialStateType } from "./types.d";
 
 export const InitialState: InitialStateType = {
-  placeholderData: null
+  placeholderData: null,
+  count: 0
 };
 
 function reducer(state = InitialState, action: AppActions) {
@@ -12,7 +13,11 @@ function reducer(state = InitialState, action: AppActions) {
         ...state,
         ...{ placeholderData: action.payload }
       };
-
+    case ActionTypes.INCREMENT:
+      return {
+        ...state,
+        count: state.count + 1
+      };
     default:
       return state;
   }

@@ -11,6 +11,7 @@ export type AppActions = ActionType<typeof actions>;
 
 export interface InitialStateType {
   readonly placeholderData: object | null;
+  count: number;
 }
 
 
