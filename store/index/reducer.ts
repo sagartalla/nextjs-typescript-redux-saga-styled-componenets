@@ -1,5 +1,5 @@
 import ActionTypes from "./constants";
-import { AppActions, InitialStateType } from "./types.d";
+import { AppActions, InitialStateType } from "../types.d";
 
 export const InitialState: InitialStateType = {
   placeholderData: [],

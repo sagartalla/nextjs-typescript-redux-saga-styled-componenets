@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { InitialStateType } from "./types.d";
+import { InitialStateType } from "../types.d";
 
 const selectGlobal = (state: InitialStateType) => state;
 

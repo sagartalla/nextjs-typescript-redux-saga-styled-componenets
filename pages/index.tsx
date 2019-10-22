@@ -8,8 +8,8 @@ import { bindActionCreators, Dispatch } from "redux";
 
 import Layout from "../components/Layout";
 
-import { loadData, incrementCount } from "../store/actions";
-import { getPaceHolderData, getCount } from "../store/selectors";
+import { loadData, incrementCount } from "../store/index/actions";
+import { getPaceHolderData, getCount } from "../store/index/selectors";
 import { InitialStateType } from "../store/types.d";
 import { NextPageContextExtended, NextPageExtended } from "../interfaces";
 

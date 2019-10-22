@@ -1,6 +1,6 @@
 import { Store } from "redux";
 import { ActionType } from 'typesafe-actions';
-import * as actions from './actions';
+import * as actions from './index/actions';
 
 export interface ExtendedStore extends Store {
   runSagaTask: Function;
