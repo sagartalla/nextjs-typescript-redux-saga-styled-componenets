@@ -1,5 +1,16 @@
 {
-  "watch": ["server", "static"],
-  "exec": "ts-node --project tsconfig.server.json server/index.ts",
-  "ext": "js ts"
+	"verbose": true,
+	"debug": false,
+	"exec": "export TS_NODE_PROJECT=tsconfig.server.json; export TS_NODE_FILES=true && node -r ts-node/register --inspect server/index.ts",
+	"ignore": [
+		"node_modules",
+		"**/*.d.ts",
+		"*.test.ts"
+	],
+	"events": {
+		"restart": "echo \"[Warning] Remember run npm run test b4 push to dev branch !\""
+	},
+	"watch": ["server"],
+	"ext": "ts",
+	"inspect": true
 }

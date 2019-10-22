@@ -1,12 +1,8 @@
 import ActionTypes from "./constants";
-import { AppActions, InitialStateType } from "../types.d";
+import { AppActions } from "../types.d";
+import { InitialState } from "../reducer";
 
-export const InitialState: InitialStateType = {
-  placeholderData: [],
-  count: 0
-};
-
-function reducer(state = InitialState, action: AppActions) {
+function reducer(state = InitialState.indexReducer, action: AppActions) {
   switch (action.type) {
     case ActionTypes.LOAD_DATA_SUCCESS:
       return {

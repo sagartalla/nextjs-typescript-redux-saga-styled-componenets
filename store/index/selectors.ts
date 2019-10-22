@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { InitialStateType } from "../types.d";
 
-const selectGlobal = (state: InitialStateType) => state;
+const selectGlobal = (state: InitialStateType) => state.indexReducer;
 
 export const getPaceHolderData = () =>
   createSelector(
