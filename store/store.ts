@@ -1,4 +1,5 @@
 import * as DevTools from "redux-devtools-extension";
+import "isomorphic-unfetch";
 
 import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
