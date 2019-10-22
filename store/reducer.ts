@@ -2,7 +2,7 @@ import ActionTypes from "./constants";
 import { AppActions, InitialStateType } from "./types.d";
 
 export const InitialState: InitialStateType = {
-  placeholderData: null,
+  placeholderData: [],
   count: 0
 };
 

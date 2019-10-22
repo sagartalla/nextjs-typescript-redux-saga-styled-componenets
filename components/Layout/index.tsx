@@ -22,11 +22,7 @@ const Layout: React.FC<Props> = ({
       <nav>
         <Link href="/">
           <a href="/">Home</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/about">
-          <a href="/about">About</a>
-        </Link>{" "}
+        </Link>
       </nav>
     </header>
     {children}

@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { createStructuredSelector } from "reselect";
 
-import Link from "next/link";
-
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
@@ -21,7 +19,7 @@ const Title = styled.h1`
 `;
 
 interface Props {
-  placeholderData?: object | null;
+  placeholderData?: Array<object> | null;
   isServer: boolean;
   incrementCount?(): void;
   count?: number;
@@ -35,11 +33,6 @@ const IndexPage: NextPageExtended<Props> = ({
   return (
     <Layout>
       <Title>Hello</Title>
-      <p>
-        <Link href="/about">
-          <a href="/about">About</a>
-        </Link>
-      </p>
       <button type="button" onClick={incrementCount}>
         Click Me
       </button>
@@ -58,17 +51,17 @@ IndexPage.getInitialProps = async (
 };
 
 IndexPage.propTypes = {
-  placeholderData: PropTypes.objectOf(PropTypes.shape({})),
+  placeholderData: PropTypes.arrayOf(PropTypes.object),
   incrementCount: PropTypes.func.isRequired,
   count: PropTypes.number.isRequired
 };
 
 IndexPage.defaultProps = {
-  placeholderData: {}
+  placeholderData: []
 };
 
 interface ConnectedProps {
-  placeholderData: object | null;
+  placeholderData: Array<object> | null;
   count: number;
 }
 

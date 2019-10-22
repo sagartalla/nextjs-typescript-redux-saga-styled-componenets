@@ -10,7 +10,7 @@ export interface ExtendedStore extends Store {
 export type AppActions = ActionType<typeof actions>;
 
 export interface InitialStateType {
-  readonly placeholderData: object | null;
+  readonly placeholderData: Array<object> | null;
   count: number;
 }
 
