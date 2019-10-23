@@ -1,4 +1,3 @@
-export const fetchJson = () =>
-  fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json());
+export const fetchJson = () => fetch("/api/middleware").then(res => res.json());
 
 export default {};

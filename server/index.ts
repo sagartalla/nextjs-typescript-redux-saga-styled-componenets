@@ -10,8 +10,8 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
-  server.get("/_next/*", (req, res) => {
-    /* serving _next static content using next.js handler */
+  /* serving _next static content and apis using next.js handler */
+  server.get(["/_next/*", "/api/*"], (req, res) => {
     handle(req, res);
   });
   server.get("*", (req, res) => {
