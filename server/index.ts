@@ -1,5 +1,6 @@
 import express from "express";
 import next from "next";
+import MobileDetect from 'mobile-detect';
 
 import { renderAndCache } from "./cacheing";
 
@@ -16,7 +17,8 @@ app.prepare().then(() => {
   });
   server.get("*", (req, res) => {
     /* serving page */
-    return renderAndCache(app, req, res);
+    const md = new MobileDetect(req.headers['user-agent'] || '');
+    return renderAndCache(app, req, res, md.mobile() ? '/mobile' : '/desktop');
   });
 
   server.listen(port, err => {

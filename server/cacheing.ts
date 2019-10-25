@@ -8,17 +8,17 @@ ssrCache.maxAge = 1000 * 60 * 60 * 24 * 30;
  * NB: make sure to modify this to take into account anything that should trigger
  * an immediate page change (e.g a locale stored in req.session)
  */
-function getCacheKey(req: express.Request) {
-  return `${req.path}`;
+function getCacheKey(path:string, req: express.Request) {
+  return `${path || req.path}`;
 }
 
 export async function renderAndCache(
   app: any,
   req: express.Request,
-  res: express.Response
+  res: express.Response,
+  path: string
 ) {
-  const key = getCacheKey(req);
-
+  const key = getCacheKey(path, req);
   // If we have a page in the cache, let's serve it
   if (ssrCache.has(key)) {
     // console.log(`serving from cache ${key}`);
@@ -29,7 +29,7 @@ export async function renderAndCache(
   try {
     // console.log(`key ${key} not found, rendering`);
     // If not let's render the page into HTML
-    let html = await app.renderToHTML(req, res, req.path, req.query);
+    let html = await app.renderToHTML(req, res, path || req.path, req.query);
     html = html || "";
     // Something is wrong with the request, let's skip the cache
     if (res.statusCode !== 200) {

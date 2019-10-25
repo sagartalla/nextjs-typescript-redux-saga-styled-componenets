@@ -6,16 +6,16 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
 
-import { loadData, incrementCount } from "../store/index/actions";
+import { loadData, incrementCount } from "../../store/index/actions";
 import {
   getPaceHolderData,
   getCount,
   getError
-} from "../store/index/selectors";
-import { InitialStateType } from "../store/types.d";
-import { NextPageContextExtended, NextPageExtended } from "../interfaces";
+} from "../../store/index/selectors";
+import { InitialStateType } from "../../store/types.d";
+import { NextPageContextExtended, NextPageExtended } from "../../interfaces";
 
 const Title = styled.h1`
   font-size: 50px;
@@ -38,7 +38,7 @@ const IndexPage: NextPageExtended<Props> = ({
 }) => {
   return (
     <Layout>
-      <Title>Hello</Title>
+      <Title>Hello Mobile</Title>
       <button type="button" onClick={incrementCount}>
         Click Me
       </button>
