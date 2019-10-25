@@ -13,6 +13,7 @@ export interface InitialStateType {
   readonly indexReducer: {
     readonly placeholderData: Array<object> | null;
     count: number;
+    error: any;
   }
 }
 

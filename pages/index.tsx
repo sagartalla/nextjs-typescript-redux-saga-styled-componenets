@@ -9,7 +9,11 @@ import { bindActionCreators, Dispatch } from "redux";
 import Layout from "../components/Layout";
 
 import { loadData, incrementCount } from "../store/index/actions";
-import { getPaceHolderData, getCount } from "../store/index/selectors";
+import {
+  getPaceHolderData,
+  getCount,
+  getError
+} from "../store/index/selectors";
 import { InitialStateType } from "../store/types.d";
 import { NextPageContextExtended, NextPageExtended } from "../interfaces";
 
@@ -20,15 +24,17 @@ const Title = styled.h1`
 
 interface Props {
   placeholderData?: Array<object> | null;
-  isServer: boolean;
+  isServer?: boolean;
   incrementCount?(): void;
   count?: number;
+  error?: string | null;
 }
 
 const IndexPage: NextPageExtended<Props> = ({
   placeholderData,
   count,
-  incrementCount
+  incrementCount,
+  error
 }) => {
   return (
     <Layout>
@@ -37,7 +43,7 @@ const IndexPage: NextPageExtended<Props> = ({
         Click Me
       </button>
       <p>You clicked {count} times</p>
-      <p>{JSON.stringify(placeholderData)}</p>
+      <p>{error || JSON.stringify(placeholderData)}</p>
     </Layout>
   );
 };
@@ -53,24 +59,19 @@ IndexPage.getInitialProps = async (
 IndexPage.propTypes = {
   placeholderData: PropTypes.arrayOf(PropTypes.object),
   incrementCount: PropTypes.func.isRequired,
-  count: PropTypes.number.isRequired
+  count: PropTypes.number.isRequired,
+  error: PropTypes.oneOfType([PropTypes.object])
 };
 
 IndexPage.defaultProps = {
-  placeholderData: []
+  placeholderData: [],
+  error: null
 };
 
-interface ConnectedProps {
-  placeholderData: Array<object> | null;
-  count: number;
-}
-
-const mapStateToProps = createStructuredSelector<
-  InitialStateType,
-  ConnectedProps
->({
+const mapStateToProps = createStructuredSelector<InitialStateType, Props>({
   placeholderData: getPaceHolderData(),
-  count: getCount()
+  count: getCount(),
+  error: getError()
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

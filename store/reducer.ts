@@ -6,7 +6,8 @@ import indexReducer from "./index/reducer";
 export const InitialState: InitialStateType = {
   indexReducer: {
     placeholderData: [],
-    count: 0
+    count: 0,
+    error: null
   }
 };
 

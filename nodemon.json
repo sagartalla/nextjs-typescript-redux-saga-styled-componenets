@@ -8,7 +8,7 @@
 		"*.test.ts"
 	],
 	"events": {
-		"restart": "echo \"[Warning] Remember run npm run test b4 push to dev branch !\""
+		"restart": "echo \"[Info] Restarting !\""
 	},
 	"watch": ["server"],
 	"ext": "ts",

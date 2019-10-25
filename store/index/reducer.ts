@@ -14,6 +14,11 @@ function reducer(state = InitialState.indexReducer, action: AppActions) {
         ...state,
         count: state.count + 1
       };
+    case ActionTypes.FAILURE:
+      return {
+        ...state,
+        ...{ error: action.payload }
+      };
     default:
       return state;
   }

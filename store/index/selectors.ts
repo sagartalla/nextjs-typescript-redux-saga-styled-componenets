@@ -15,4 +15,10 @@ export const getCount = () =>
     globalState => globalState.count
   );
 
+export const getError = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.error
+  );
+
 export default {};
