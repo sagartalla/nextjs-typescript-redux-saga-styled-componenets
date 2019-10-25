@@ -1,4 +1,7 @@
 module.exports = {
+  publicRuntimeConfig: {
+    appEnv: process.env.APP_ENV
+  },
   webpack: (config, { dev }) => {
     if (dev) {
       config.module.rules.push({
