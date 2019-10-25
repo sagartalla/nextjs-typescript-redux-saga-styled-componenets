@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon",
-    "build": "next build && tsc --project tsconfig.server.json",
+    "build": "node --inspect-brk ./node_modules/next/dist/bin/next build && tsc --project tsconfig.server.json",
     "start": "cross-env NODE_ENV=production node dist/index.js",
+    "analyze": "cross-env ANALYZE=true next build",
     "type-check": "tsc"
   },
   "dependencies": {
-    "@types/cookie": "^0.3.3",
     "cookie": "^0.4.0",
     "es6-promise": "^4.2.8",
     "express": "^4.17.1",
@@ -27,9 +27,11 @@
     "redux-saga": "^1.1.1",
     "reselect": "^4.0.0",
     "styled-components": "^4.4.0",
-    "typesafe-actions": "^4.4.2"
+    "typesafe-actions": "^4.4.2",
+    "@next/bundle-analyzer": "^9.1.1"
   },
   "devDependencies": {
+    "@types/cookie": "^0.3.3",
     "@types/express": "^4.17.1",
     "@types/lru-cache": "^5.1.0",
     "@types/next-redux-saga": "^3.0.1",

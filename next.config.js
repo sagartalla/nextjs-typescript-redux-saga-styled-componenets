@@ -1,4 +1,8 @@
-module.exports = {
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true"
+});
+
+module.exports = withBundleAnalyzer({
   publicRuntimeConfig: {
     appEnv: process.env.APP_ENV
   },
@@ -15,4 +19,4 @@ module.exports = {
     }
     return config;
   }
-};
+});
