@@ -19,7 +19,7 @@ app.prepare().then(() => {
   server.get("*", (req, res) => {
     /* serving page */
     const md = new MobileDetect(req.headers['user-agent'] || '');
-    return renderAndCache(app, req, res, md.mobile() ? '/mobile' : '/desktop');
+    return renderAndCache(app, req, res, `${md.mobile() ? '/mobile' : '/desktop'}${req.url !== '/' ? req.url : ''}`);
   });
 
   server.listen(port, err => {
