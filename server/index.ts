@@ -1,6 +1,7 @@
 import express from "express";
 import next from "next";
 import MobileDetect from 'mobile-detect';
+import "isomorphic-unfetch";
 
 import { renderAndCache } from "./cacheing";
 
