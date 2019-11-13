@@ -1,6 +1,6 @@
 import express from "express";
 import next from "next";
-import MobileDetect from 'mobile-detect';
+// import MobileDetect from 'mobile-detect';
 import urlHelpers from 'url';
 
 import "isomorphic-unfetch";
@@ -25,8 +25,8 @@ app.prepare().then(() => {
   })
   server.get("*", (req, res) => {
     /* serving page */
-    const md = new MobileDetect(req.headers['user-agent'] || '');
-    return renderAndCache(app, req, res, `${md.mobile() ? '/mobile' : '/desktop'}${req.url !== '/' ? req.url : ''}`);
+    // const md = new MobileDetect(req.headers['user-agent'] || '');
+    return renderAndCache(app, req, res, req.url);
   });
 
   server.listen(port, err => {
