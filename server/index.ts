@@ -1,13 +1,10 @@
 import express from "express";
 import next from "next";
-// import MobileDetect from 'mobile-detect';
 import urlHelpers from 'url';
 
 import "isomorphic-unfetch";
 
 import { renderAndCache } from "./cacheing";
-
-
 
 const port = parseInt(process.env.PORT || "3000", 10);
 const dev = process.env.NODE_ENV !== "production";
@@ -25,7 +22,6 @@ app.prepare().then(() => {
   })
   server.get("*", (req, res) => {
     /* serving page */
-    // const md = new MobileDetect(req.headers['user-agent'] || '');
     return renderAndCache(app, req, res, req.url);
   });
 

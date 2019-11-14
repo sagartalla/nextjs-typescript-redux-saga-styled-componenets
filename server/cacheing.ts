@@ -1,5 +1,6 @@
 import LRUCache from "lru-cache";
 import express from "express";
+import isMobile from "../utils/isMobile";
 
 const ssrCache = new LRUCache<string, string>();
 ssrCache.max = 100 * 1024 * 1024;
@@ -9,7 +10,7 @@ ssrCache.maxAge = 1000 * 60 * 60 * 24 * 30;
  * an immediate page change (e.g a locale stored in req.session)
  */
 function getCacheKey(path:string, req: express.Request) {
-  return `${path || req.path}`;
+  return `${isMobile(req) ? 'M': 'D'}:${path || req.path}`;
 }
 
 export async function renderAndCache(
@@ -20,7 +21,7 @@ export async function renderAndCache(
 ) {
   const key = getCacheKey(path, req);
   // If we have a page in the cache, let's serve it
-  if (ssrCache.has(key)) {
+  if (ssrCache.has(key) && process.env.NODE_ENV === "production") {
     // console.log(`serving from cache ${key}`);
     res.setHeader("x-cache", "HIT");
     res.send(ssrCache.get(key));
