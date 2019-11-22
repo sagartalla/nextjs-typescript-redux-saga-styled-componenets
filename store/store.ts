@@ -7,7 +7,7 @@ import createSagaMiddleware from "redux-saga";
 import { ExtendedStore } from "./types.d";
 
 import rootReducer, { InitialState } from "./reducer";
-import rootSaga from "./index/saga";
+import rootSaga from "./saga";
 
 const bindMiddleware = (middleware: any[]) => {
   if (process.env.NODE_ENV !== "production") {
