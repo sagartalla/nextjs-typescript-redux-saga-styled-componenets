@@ -4,7 +4,7 @@ import urlHelpers from 'url';
 
 import "isomorphic-unfetch";
 
-import { renderAndCache } from "./cacheing";
+// import { renderAndCache } from "./cacheing";
 
 const port = parseInt(process.env.PORT || "3000", 10);
 const dev = process.env.NODE_ENV !== "production";
@@ -22,7 +22,8 @@ app.prepare().then(() => {
   })
   server.get("*", (req, res) => {
     /* serving page */
-    return renderAndCache(app, req, res, req.url);
+    handle(req, res);
+    // return renderAndCache(app, req, res, req.url);
   });
 
   server.listen(port, err => {

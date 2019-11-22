@@ -1,0 +1,23 @@
+
+body {
+  background: #f3f3f7;
+  scroll-behavior: smooth;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 100%;
+}
+
+#loader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
+  top: 0;
+  left: 0;
+}

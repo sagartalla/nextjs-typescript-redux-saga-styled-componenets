@@ -4,8 +4,8 @@ import { NextPageContext } from "next";
 import isMobile from "../utils/isMobile";
 import { NextPageExtended } from "../interfaces";
 
-import DesktopLogin from "../components/Login/desktop";
-import MobileLogin from "../components/Login/mobile";
+import DesktopLogin from "components/Login/desktop";
+import MobileLogin from "components/Login/mobile";
 
 interface Props {
   isMobile: boolean;

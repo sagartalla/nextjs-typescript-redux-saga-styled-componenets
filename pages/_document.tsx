@@ -1,5 +1,5 @@
 import React, { ComponentType } from "react";
-import Document from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -28,5 +28,28 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head>
+          <link
+            href="/static/css/global.css"
+            rel="stylesheet"
+            type="text/css"
+          />
+        </Head>
+        <body>
+          <Main />
+          <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+            rel="stylesheet"
+          />
+          <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
