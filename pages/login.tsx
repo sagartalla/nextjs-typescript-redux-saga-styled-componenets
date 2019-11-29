@@ -4,6 +4,7 @@ import { NextPageContext } from "next";
 import isMobile from "../utils/isMobile";
 import { NextPageExtended } from "../interfaces";
 
+import Container from "../components/Login";
 import DesktopLogin from "../components/Login/desktop";
 import MobileLogin from "../components/Login/mobile";
 
@@ -12,8 +13,8 @@ interface Props {
 }
 
 const Login: NextPageExtended<Props> = ({ isMobile }) => {
-  if (isMobile) return <MobileLogin />;
-  return <DesktopLogin />;
+  const Component = isMobile ? Container(MobileLogin) : DesktopLogin;
+  return <Component />;
 };
 
 Login.getInitialProps = async (ctx: NextPageContext) => {

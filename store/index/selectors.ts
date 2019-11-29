@@ -1,7 +1,8 @@
 import { createSelector } from "reselect";
-import { InitialStateType } from "../types.d";
+// import { InitialStateType } from "../types.d";
 
-const selectGlobal = (state: InitialStateType) => state.indexReducer;
+// Need to find the solution for state type
+const selectGlobal = (state: any) => state.indexReducer;
 
 export const getPaceHolderData = () =>
   createSelector(
@@ -19,6 +20,12 @@ export const getError = () =>
   createSelector(
     selectGlobal,
     globalState => globalState.error
+  );
+
+export const getToastMessage = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.toastMessage
   );
 
 export default {};

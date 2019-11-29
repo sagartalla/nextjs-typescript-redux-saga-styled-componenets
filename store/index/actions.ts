@@ -10,3 +10,6 @@ export const incrementCount = () => action(ActionTypes.INCREMENT);
 
 export const loadDataSuccess = (data: Array<object>) =>
   action(ActionTypes.LOAD_DATA_SUCCESS, data);
+
+export const setToastMessage = (data: string) =>
+  action(ActionTypes.SET_TOAST_MESSAGE, data);

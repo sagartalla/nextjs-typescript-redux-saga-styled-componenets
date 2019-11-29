@@ -1,16 +1,12 @@
 {
-	"verbose": true,
-	"debug": false,
-	"exec": "export TS_NODE_PROJECT=tsconfig.server.json; export TS_NODE_FILES=true && node -r ts-node/register server/index.ts",
-	"ignore": [
-		"node_modules",
-		"**/*.d.ts",
-		"*.test.ts"
-	],
-	"events": {
-		"restart": "echo \"[Info] Restarting !\""
-	},
-	"watch": ["server"],
-	"ext": "ts",
-	"inspect": true
+  "verbose": true,
+  "debug": false,
+  "exec": "export TS_NODE_PROJECT=tsconfig.server.json; export TS_NODE_FILES=true && node -r ts-node/register server/index.ts",
+  "ignore": ["node_modules", "**/*.d.ts", "*.test.ts"],
+  "events": {
+    "restart": "echo \"[Info] Restarting !\""
+  },
+  "watch": ["server"],
+  "ext": "ts",
+  "inspect": true
 }

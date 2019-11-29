@@ -19,6 +19,11 @@ function reducer(state = InitialState.indexReducer, action: AppActions) {
         ...state,
         ...{ error: action.payload }
       };
+    case ActionTypes.SET_TOAST_MESSAGE:
+      return {
+        ...state,
+        toastMessage: action.payload
+      };
     default:
       return state;
   }

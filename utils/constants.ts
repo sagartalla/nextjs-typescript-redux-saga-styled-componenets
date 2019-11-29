@@ -6,7 +6,7 @@ const { appEnv } = publicRuntimeConfig;
 
 const SERVICE_ORIGINS: { [dev: string]: { TEMP_SERVICE: string } } = {
   dev: {
-    TEMP_SERVICE: "https://jsonplaceholder.typicode.com"
+    TEMP_SERVICE: "http://172.31.58.234:9001/storefront/api/v1"
   }
 };
 

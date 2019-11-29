@@ -1,45 +1,47 @@
 {
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint", "react","prettier"],
-    "extends": [
-        "airbnb",
-        "prettier",
-        "prettier/react",
-        "prettier/@typescript-eslint",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".ts", "tsx"] }
     ],
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "env": {
-        "es6": true,
-        "browser": true,
-        "jest": true
-    },
-    "settings": {
-        "react": {
-            "version": "detect"
-        },
-        "import/resolver": {
-          "node": {
-            "extensions": [".js", ".jsx", ".ts", ".tsx"]
-          }
-        }
-    },
-    "rules": {
-        "prettier/prettier": "error",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".ts", "tsx"] }],
-        "react/jsx-props-no-spreading": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/explicit-member-accessibility": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "no-shadow": "off"
-
-    },
-    "overrides": []
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-shadow": "off"
+  },
+  "overrides": []
 }

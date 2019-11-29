@@ -1,6 +1,6 @@
 import { Store } from "redux";
-import { ActionType } from 'typesafe-actions';
-import * as actions from './index/actions';
+import { ActionType } from "typesafe-actions";
+import * as actions from "./index/actions";
 
 export interface ExtendedStore extends Store {
   runSagaTask: Function;
@@ -14,8 +14,8 @@ export interface InitialStateType {
     readonly placeholderData: Array<object> | null;
     count: number;
     error: any;
-  }
+    readonly toastMessage: string;
+  };
 }
-
 
 export default {};

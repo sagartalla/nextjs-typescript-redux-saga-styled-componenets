@@ -1,6 +1,6 @@
 import express from "express";
 import next from "next";
-import urlHelpers from 'url';
+import urlHelpers from "url";
 
 import "isomorphic-unfetch";
 
@@ -13,13 +13,17 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
+  console.log("uper");
   /* serving _next static content and apis using next.js handler */
   server.get(["/_next/*"], (req, res) => {
     handle(req, res);
   });
-  server.get('/api/*', (req, res) => {
+  server.get("/api/*", (req, res) => {
     handle(req, res, urlHelpers.parse(`/api/middleware`, true));
-  })
+  });
+  server.post("/api/*", (req, res) => {
+    handle(req, res, urlHelpers.parse(`/api/middleware`, true));
+  });
   server.get("*", (req, res) => {
     /* serving page */
     return renderAndCache(app, req, res, req.url);
