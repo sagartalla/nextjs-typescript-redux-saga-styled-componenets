@@ -5,7 +5,7 @@ import FormikInput from "@acko-ui-kit/form";
 import { Text } from "@acko-ui-kit/typography";
 import LoginMain from "../../../public/images/login-main.svg";
 import OtpScreen from "./otpScreen";
-import ModalLazyLoad from "../../Common/mobile/modal";
+import Modal from "../../Common/mobile/modal";
 import { useSentOtp, useVerifiedOtp } from "./useCustomHooks";
 
 import validate from "../../../utils/validate";
@@ -101,7 +101,7 @@ function LoginScreen(props: LoginScreenProps) {
           </Text>
         </Box>
       </Flex>
-      <ModalLazyLoad
+      <Modal
         align="left"
         header={<Text size="normal" fontWeight="bold" />}
         show={showVerifyOtp}
@@ -125,7 +125,7 @@ function LoginScreen(props: LoginScreenProps) {
             })
           }
         />
-      </ModalLazyLoad>
+      </Modal>
       <Toast
         visible={!!toastMessage}
         toastMessage={toastMessage}

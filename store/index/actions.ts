@@ -2,14 +2,18 @@ import { action } from "typesafe-actions";
 
 import ActionTypes from "./constants";
 
-export const loadData = () => action(ActionTypes.LOAD_DATA);
+interface DataSuccessInterface {
+  proposalCount: number;
+  userName: string;
+  mobileNumber: string;
+}
 
-export const failure = (error: object) => action(ActionTypes.FAILURE, error);
+export const getAppData = () => action(ActionTypes.GET_APP_DATA);
 
-export const incrementCount = () => action(ActionTypes.INCREMENT);
+export const getAppDataSuccess = (data: DataSuccessInterface) =>
+  action(ActionTypes.GET_APP_DATA_SUCCESS, data);
 
-export const loadDataSuccess = (data: Array<object>) =>
-  action(ActionTypes.LOAD_DATA_SUCCESS, data);
+export const getAppDataFailure = () => action(ActionTypes.GET_APP_DATA_FAILURE);
 
 export const setToastMessage = (data: string) =>
   action(ActionTypes.SET_TOAST_MESSAGE, data);

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 55.2 (78181) - https://sketchapp.com -->
+    <title>26BDA148-7EFD-4A72-A85F-2AC43D72219B</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Choose-Car-Type" transform="translate(-30.000000, -125.000000)">
+            <g id="QuickLinks-/-Claim" transform="translate(20.000000, 115.000000)">
+                <g id="Icon-">
+                    <g transform="translate(10.000000, 10.000000)">
+                        <g id="Icon-/-Claim">
+                            <circle id="Oval" fill="#F3F7FF" fill-rule="nonzero" cx="15.9378199" cy="15.9378199" r="15.9378199"></circle>
+                            <g id="Group" transform="translate(8.000000, 6.000000)">
+                                <path d="M10.3967918,19.6189573 L1.13674079,19.6189573 L1.13674079,5.03696682 C1.13674079,4.51347417 1.5545866,4.08909953 2.07002552,4.08909953 L3.03877506,4.08909953 L3.03877506,15.7345972 C3.03877506,16.176425 3.39143692,16.5345972 3.82646737,16.5345972 L12.0991032,16.5345972 L12.0991032,17.8976303 C12.0949924,18.8495183 11.3340444,19.6189573 10.3967918,19.6189573 Z" id="Path" fill="#93CEFC" fill-rule="nonzero"></path>
+                                <path d="M12.1028363,17.3023697 L12.1028363,18.371564 C12.1028363,18.7047331 11.9723943,19.0242289 11.7402576,19.2596372 C11.5081208,19.4950454 11.1933438,19.6270436 10.8653008,19.6265417 L1.23566898,19.6265417 C0.553227845,19.6265417 6.21724894e-15,19.0646683 6.21724894e-15,18.371564 L6.21724894e-15,4.34312796 C6.21724894e-15,4.01028755 0.130186179,3.69107942 0.361919064,3.45572571 C0.593651948,3.220372 0.907949187,3.08815166 1.23566898,3.08815166 L2.08869121,3.08815166" id="Path" stroke="#373737" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <rect id="Rectangle" stroke="#373737" stroke-linecap="round" stroke-linejoin="round" x="3.0425082" y="-2.57571742e-13" width="12.1028363" height="16.5270142" rx="1.22215385"></rect>
+                                <path d="M7.03696682,4.57251185 L9.59603354,4.57251185" id="Path" stroke="#373737" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M7.03696682,8.26540284 L11.1508859,8.26540284" id="Path" stroke="#373737" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M7.03696682,11.9582938 L9.59603354,11.9582938" id="Path" stroke="#373737" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

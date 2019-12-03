@@ -1,3 +1,3 @@
-export const fetchJson = () => fetch(`/api/users`).then(res => res.json());
+export const fetchAppData = () => fetch(`/api/header`).then(res => res.json());
 
 export default {};

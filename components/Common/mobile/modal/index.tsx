@@ -15,6 +15,7 @@ const ModalWrapper = styled.div`
   ${(props: { variant?: string }): string =>
     props.variant === "large" ? "top: 6.5%" : "top: 50%"};
   bottom: 0;
+  left: 0;
   padding: 30px;
   overflow: scroll;
   &.modal-transition-enter {

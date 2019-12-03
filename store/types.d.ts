@@ -10,12 +10,11 @@ export interface ExtendedStore extends Store {
 export type AppActions = ActionType<typeof actions>;
 
 export interface InitialStateType {
-  readonly indexReducer: {
-    readonly placeholderData: Array<object> | null;
-    count: number;
-    error: any;
-    readonly toastMessage: string;
-  };
+  readonly proposalCount: number | null;
+  readonly userName: string;
+  readonly mobileNumber: string;
+  readonly appDataLoaded: boolean | null;
+  readonly toastMessage: string;
 }
 
 export default {};

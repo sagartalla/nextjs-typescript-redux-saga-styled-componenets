@@ -2,22 +2,35 @@ import { all, put, takeLatest } from "redux-saga/effects";
 import es6promise from "es6-promise";
 import ActionType from "./constants";
 
-import { loadDataSuccess, failure } from "./actions";
-import { fetchJson } from "./apis";
+import { getAppDataSuccess, getAppDataFailure } from "./actions";
+import { fetchAppData } from "./apis";
 
 es6promise.polyfill();
 
-function* loadDataSaga() {
+function* getAppData() {
   try {
-    const data = yield fetchJson();
-    yield put(loadDataSuccess(data));
+    const response = yield fetchAppData();
+    if (response.metadata.status === "SUCCESS") {
+      const {
+        user_info: userInfo,
+        proposal_count: proposalCount
+      } = response.data;
+      yield put(
+        getAppDataSuccess({
+          proposalCount,
+          userName: userInfo.name,
+          mobileNumber: userInfo.phone
+        })
+      );
+    }
   } catch (err) {
-    yield put(failure(err));
+    console.log("error:", err); // eslint-disable-line
+    yield put(getAppDataFailure());
   }
 }
 
 function* rootSaga() {
-  yield all([takeLatest(ActionType.LOAD_DATA, loadDataSaga)]);
+  yield all([takeLatest(ActionType.GET_APP_DATA, getAppData)]);
 }
 
 export default rootSaga;

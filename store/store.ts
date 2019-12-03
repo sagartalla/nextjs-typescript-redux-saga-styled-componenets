@@ -6,7 +6,7 @@ import createSagaMiddleware from "redux-saga";
 
 import { ExtendedStore } from "./types.d";
 
-import rootReducer, { InitialState } from "./reducer";
+import rootReducer from "./reducer";
 import rootSaga from "./saga";
 
 const bindMiddleware = (middleware: any[]) => {
@@ -16,11 +16,10 @@ const bindMiddleware = (middleware: any[]) => {
   return applyMiddleware(...middleware);
 };
 
-function configureStore(initialState = InitialState) {
+function configureStore() {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
     rootReducer,
-    initialState,
     bindMiddleware([sagaMiddleware])
   ) as ExtendedStore;
 

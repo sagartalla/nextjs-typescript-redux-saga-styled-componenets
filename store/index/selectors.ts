@@ -4,22 +4,16 @@ import { createSelector } from "reselect";
 // Need to find the solution for state type
 const selectGlobal = (state: any) => state.indexReducer;
 
-export const getPaceHolderData = () =>
+export const getMobileNumber = () =>
   createSelector(
     selectGlobal,
-    globalState => globalState.placeholderData
+    globalState => globalState.mobileNumber
   );
 
-export const getCount = () =>
+export const getUserName = () =>
   createSelector(
     selectGlobal,
-    globalState => globalState.count
-  );
-
-export const getError = () =>
-  createSelector(
-    selectGlobal,
-    globalState => globalState.error
+    globalState => globalState.userName
   );
 
 export const getToastMessage = () =>
@@ -27,5 +21,3 @@ export const getToastMessage = () =>
     selectGlobal,
     globalState => globalState.toastMessage
   );
-
-export default {};

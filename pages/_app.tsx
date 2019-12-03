@@ -7,13 +7,11 @@ import { Store } from "redux";
 import { Provider } from "react-redux";
 import withRedux from "next-redux-wrapper";
 import withReduxSaga from "next-redux-saga";
-
 import createStore from "../store/store";
+import { getAppData } from "../store/index/actions";
 
 const theme = {
-  colors: {
-    primary: "#0070f3"
-  }
+  colors: { primary: "#0070f3" }
 };
 
 interface Props {
@@ -21,6 +19,15 @@ interface Props {
 }
 
 class StoreApp extends App<Props & AppProps> {
+  componentDidMount() {
+    const { store } = this.props;
+    const { indexReducer } = store.getState();
+    const { appDataLoaded } = indexReducer;
+    if (!appDataLoaded) {
+      store.dispatch(getAppData());
+    }
+  }
+
   render() {
     const { Component, pageProps, store } = this.props;
     return (
@@ -49,6 +56,14 @@ class StoreApp extends App<Props & AppProps> {
                 padding: 0;
                 width: 100%;
                 height: 100%;
+                background: #f3f3f7;
+                scroll-behavior: smooth;
+                box-sizing: border-box;
+              }
+              *,
+              *:before,
+              *:after {
+                box-sizing: inherit;
               }
             `}</style>
           </>

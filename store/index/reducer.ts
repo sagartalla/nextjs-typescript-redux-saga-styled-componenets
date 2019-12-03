@@ -1,23 +1,33 @@
 import ActionTypes from "./constants";
-import { AppActions } from "../types.d";
-import { InitialState } from "../reducer";
+import { AppActions, InitialStateType } from "../types.d";
 
-function reducer(state = InitialState.indexReducer, action: AppActions) {
+const InitialState: InitialStateType = {
+  proposalCount: null,
+  userName: "",
+  mobileNumber: "",
+  appDataLoaded: null,
+  toastMessage: ""
+};
+
+function reducer(state = InitialState, action: AppActions) {
   switch (action.type) {
-    case ActionTypes.LOAD_DATA_SUCCESS:
+    case ActionTypes.GET_APP_DATA:
       return {
         ...state,
-        ...{ placeholderData: action.payload }
+        appDataLoaded: null
       };
-    case ActionTypes.INCREMENT:
+    case ActionTypes.GET_APP_DATA_SUCCESS:
       return {
         ...state,
-        count: state.count + 1
+        proposalCount: action.payload.proposalCount,
+        userName: action.payload.userName,
+        mobileNumber: action.payload.mobileNumber,
+        appDataLoaded: true
       };
-    case ActionTypes.FAILURE:
+    case ActionTypes.GET_APP_DATA_FAILURE:
       return {
         ...state,
-        ...{ error: action.payload }
+        appDataLoaded: false
       };
     case ActionTypes.SET_TOAST_MESSAGE:
       return {
