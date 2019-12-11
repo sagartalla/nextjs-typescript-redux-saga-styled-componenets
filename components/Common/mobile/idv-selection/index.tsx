@@ -29,12 +29,12 @@ const Radio = ({
   return (
     <Box>
       <Text size="xxxs" color={labelColor}>
-        {header}
+        {label ? header : <span>{"\u00A0"}</span>}
       </Text>
       <Flex alignItems="flex-end">
         <StyledInput type="radio" name={name} defaultChecked={isSelected} />
         <Text size="xxs" color={color}>
-          {label}
+          {label || header}
         </Text>
       </Flex>
     </Box>
