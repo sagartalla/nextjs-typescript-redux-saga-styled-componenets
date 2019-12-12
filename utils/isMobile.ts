@@ -9,7 +9,6 @@ const isMobile = (req: any) => {
         a.substr(0, 4)
       )
     ) {
-      debugger;
       return true;
     }
     return false;

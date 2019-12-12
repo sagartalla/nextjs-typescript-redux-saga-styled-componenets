@@ -25,6 +25,10 @@ const handler = (req: express.Request, res: express.Response) => {
     .then(apiRes => {
       res.set(apiRes.headers);
       res.end(JSON.stringify(apiRes.data));
+    })
+    .catch(err => {
+      const errData = err.response.data;
+      res.status(errData.status).end(errData.message);
     });
 };
 

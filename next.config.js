@@ -37,7 +37,18 @@ module.exports = withBundleAnalyzer({
         },
         {
           test: /\.svg$/,
-          use: ["@svgr/webpack"]
+          use: [
+            {
+              loader: "@svgr/webpack",
+              options: {
+                svgoConfig: {
+                  plugins: {
+                    removeViewBox: false
+                  }
+                }
+              }
+            }
+          ]
         }
       );
     }
