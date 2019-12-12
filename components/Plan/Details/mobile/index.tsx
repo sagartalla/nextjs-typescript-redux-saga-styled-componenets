@@ -6,6 +6,7 @@ import SpecialOffers from "./special-offers";
 import Covers from "./covers";
 import AdditionalCovers from "./additional-covers";
 import CoverWidget from "./CoverWidget";
+import BuyNow from "./buy-now";
 
 const CustomBox = styled(Box)`
   position: relative;
@@ -115,6 +116,7 @@ const Details = () => (
         ]}
         title="What’s Not Covered"
       />
+      <BuyNow originalPrice="8100.00" discountedPrice="6915.00" gst="18" />
     </CustomBox>
   </>
 );
