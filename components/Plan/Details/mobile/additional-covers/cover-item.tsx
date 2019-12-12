@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Flex } from "@acko-ui-kit/common";
 import { Text } from "@acko-ui-kit/typography";
 import styled from "styled-components";
+import PlaceHolder from "../../../../../public/images/plan/details/add-cover-placeholder.svg";
 
 export interface AdditionalCover {
   title: string;
@@ -24,7 +25,7 @@ const Button = styled(Box)`
   font-size: 12px;
   padding: 7px 11px;
   text-align: center;
-  max-width: 80px;
+  width: 60px;
 `;
 
 const Elipses = styled(Text)`
@@ -44,9 +45,22 @@ const CoverItem = ({
       {additionalCover.covers.length === 1 ? (
         <Flex>
           <div style={{ flexGrow: 1 }}>
-            <img src="https://via.placeholder.com/40" alt="" />
+            <div
+              style={{
+                width: "40px",
+                height: "40px",
+                display: "flex",
+                justifyContent: "center"
+              }}
+            >
+              {additionalCover.image ? (
+                <img src={additionalCover.image} alt="" />
+              ) : (
+                <PlaceHolder />
+              )}
+            </div>
           </div>
-          <div style={{ flexGrow: 2 }}>
+          <div style={{ flexGrow: 10 }}>
             <Box width="160px">
               <Text size="normal">{firstCover.displayText}</Text>
               <Elipses size="xxxs">{firstCover.description}</Elipses>
@@ -60,9 +74,22 @@ const CoverItem = ({
         <Box>
           <Flex alignItems="center">
             <div style={{ flexGrow: 1 }}>
-              <img src="https://via.placeholder.com/40" alt="" />
+              <div
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  display: "flex",
+                  justifyContent: "center"
+                }}
+              >
+                {additionalCover.image ? (
+                  <img src={additionalCover.image} alt="" />
+                ) : (
+                  <PlaceHolder />
+                )}
+              </div>
             </div>
-            <div style={{ flexGrow: 3 }}>
+            <div style={{ flexGrow: 10 }}>
               <Box>
                 <Text size="small">{additionalCover.title}</Text>
               </Box>
@@ -83,7 +110,7 @@ const CoverItem = ({
                     <input type="radio" name={additionalCover.title} />
                   </div>
                 </div>
-                <div style={{ flexGrow: 2 }}>
+                <div style={{ flexGrow: 10 }}>
                   <Box width="160px">
                     <Text size="xs">{cover.displayText}</Text>
                     <Elipses size="xxxs">{cover.description}</Elipses>

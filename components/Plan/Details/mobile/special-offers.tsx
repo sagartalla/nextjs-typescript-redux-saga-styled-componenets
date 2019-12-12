@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Card from "@acko-ui-kit/card";
 import { Box, Flex } from "@acko-ui-kit/common";
 import { H6, Text } from "@acko-ui-kit/typography";
+import Placeholder from "../../../../public/images/plan/details/special-offer-placeholder.svg";
 
 interface Offer {
   displayText: string;
@@ -33,10 +34,14 @@ const SpecialOffers = ({ offers }: { offers: Offer[] }) => (
         <Box key={offer.displayText} pt="20px">
           <Flex alignItems="flex-start">
             <Box width="fit-content" height="fit-content" mr="10px">
-              <img
-                src={offer.image || "https://via.placeholder.com/50"} // TODO: remove placeholder
-                alt={offer.displayText}
-              />
+              {offer.image ? (
+                <img
+                  src={offer.image} // TODO: remove placeholder
+                  alt={offer.displayText}
+                />
+              ) : (
+                <Placeholder />
+              )}
             </Box>
             <Box>
               <Box>
