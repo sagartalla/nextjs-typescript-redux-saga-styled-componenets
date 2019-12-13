@@ -34,6 +34,26 @@ const Elipses = styled(Text)`
   text-overflow: ellipsis;
 `;
 
+const StyledRadio = styled.input`
+  position: relative;
+  &:after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #8990a1;
+    position: absolute;
+    background: #fff;
+    left: -2px;
+    top: -2px;
+  }
+  &:checked {
+    &:after {
+      border 5px solid #8990a1;
+    }
+  }
+`;
+
 const CoverItem = ({
   additionalCover
 }: {
@@ -107,7 +127,7 @@ const CoverItem = ({
                       justifyContent: "center"
                     }}
                   >
-                    <input type="radio" name={additionalCover.title} />
+                    <StyledRadio type="radio" name={additionalCover.title} />
                   </div>
                 </div>
                 <div style={{ flexGrow: 10 }}>
